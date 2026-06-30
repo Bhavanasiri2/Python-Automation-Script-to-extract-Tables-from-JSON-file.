@@ -1,4 +1,6 @@
 Python Automation Script – Table Lineage Extraction
+
+
 📌 Project Description
 At WBD, documenting database tables and their lineage across layers is essential for managing data pipelines. While Colibri supports this process, certain tasks still require manual effort. To streamline documentation, we built a Python automation script that extracts tables from JSON files and traces their lineage — showing how a source table flows through bronze and silver layers until it reaches the gold layer.
 
