@@ -1,0 +1,73 @@
+{
+  "_invocation_id": "9f7b8c10-a123-4d56-b789-123456789abc",
+  "linked": {
+    "0": {
+      "name": "source.enterprise_alpha.bronze.dim_customer",
+      "type": "source",
+      "succ": [100]
+    },
+    "1": {
+      "name": "source.enterprise_alpha.bronze.dim_product",
+      "type": "source",
+      "succ": [100]
+    },
+    "2": {
+      "name": "source.enterprise_alpha.bronze.fact_sales",
+      "type": "source",
+      "succ": [101]
+    },
+    "3": {
+      "name": "source.enterprise_alpha.bronze.fact_inventory",
+      "type": "source",
+      "succ": [102]
+    },
+    "100": {
+      "name": "transform.join_customer_product",
+      "type": "transform",
+      "succ": [103]
+    },
+    "101": {
+      "name": "transform.aggregate_sales",
+      "type": "transform",
+      "succ": [103]
+    },
+    "102": {
+      "name": "transform.calculate_inventory_metrics",
+      "type": "transform",
+      "succ": [104]
+    },
+    "103": {
+      "name": "transform.build_revenue_model",
+      "type": "transform",
+      "succ": [200]
+    },
+    "104": {
+      "name": "transform.build_inventory_model",
+      "type": "transform",
+      "succ": [201]
+    },
+    "200": {
+      "name": "silver.customer_revenue_summary",
+      "type": "table",
+      "succ": [300]
+    },
+    "201": {
+      "name": "silver.inventory_performance_summary",
+      "type": "table",
+      "succ": [300]
+    },
+    "300": {
+      "name": "gold.enterprise_performance_mart",
+      "type": "table",
+      "succ": [400, 401]
+    },
+    "400": {
+      "name": "report.executive_kpi_dashboard",
+      "type": "report"
+    },
+    "401": {
+      "name": "report.monthly_revenue_analysis",
+      "type": "report"
+    }
+  }
+}
